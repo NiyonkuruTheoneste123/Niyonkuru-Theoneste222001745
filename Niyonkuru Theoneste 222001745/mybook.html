@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Chapter</title>
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            color: white;
+            background-color: black;
+            margin:50;
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            font-size: 17px;
+            background-color: orange; 
+        }
+        .nav {
+            overflow: hidden;
+            background-color: dimgray;
+        }
+        .nav a {
+            float: left;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        .nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            color: white;
+            background-image: my.jpg;
+        }
+   
+}
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>PRODUCTION COMPANY MANAGEMENT SYSTEM</h1>
+</div>
+
+<div class="nav">
+    <a href="home.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="Contact us.html">Contact us</a>
+    <a href="Services.html">Services</a>
+    <a href="Form.html">Form</a>
+    <a href="tables.html">Tables</a>
+    <a href="mybook.html">My Book</a>
+</div>
+<body>
+    <h1>Chapter 1: DATABASE</h1>
+    <p>With this chapter, we are going to explain MySQL commands used in our system to build tables, create relationships between tables, and manipulate data as we can view, insert, update, and delete.</p>
+    <p>In our database, we need to explain table-to-table by defining its role in building cohesion while the system is running accordingly.</p>
+    <p>Let us go through our database as we are using xampp server version 127.0.0.1</p>
+    <h2>1.1 SECTION 1:</h2>
+    <h3>1.1.1 ENTITIES</h3>
+    <p>Our system has 8 entities including admin entity, that we are going to describe one by one according to their relationships;</p>
+    
+    <h4>A) CUSTOMER ENTITY</h4>
+    <p>This table will be for the customer of the company, where information relates to the customer will be stored. The entity has its relationship with products entity because it will be necessary to know what kind of product does the customer purchased.</p>
+  <tr bgcolor="orange"><a href="tables.html">Tables</a>
+  </tr>
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>CustID:</td>
+            <td>Customer identity</td>
+        </tr>
+        <tr>
+            <td>ProID:</td>
+            <td>Product identity</td>
+        </tr>
+        <tr>
+            <td>CFname:</td>
+            <td>Customer first name</td>
+        </tr>
+        <tr>
+            <td>Clname:</td>
+            <td>Customer last name</td>
+        </tr>
+        <tr>
+            <td>Cemail:</td>
+            <td>Customer email</td>
+        </tr>
+        <tr>
+            <td>Cphone:</td>
+            <td>Customer phone contact</td>
+        </tr>
+        <tr>
+            <td>Amountpaid:</td>
+            <td>Amount paid by customer</td>
+        </tr>
+    </table>
+
+    <h4>B) EMPLOYEE ENTITY</h4>
+    <p>This table will store data of managers for the company that will manage all assets in different branches. For this company has many branches in different parts of the country, it will be essential for CEO to coordinate data of each manager according to his/her responsibilities.</p>
+    <p>This entity has its relationship with the market entity because each market will have an employee in charge of controlling it. It also has a relationship with the property entity because the property will be controlled by managers, so we need to know the company's properties and the manager controlling them to ensure better utilization of them.</p>
+  <a href="tables.html">Tables</a>
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>EmpID:</td>
+            <td>Employee identity</td>
+        </tr>
+        <tr>
+            <td>Fname:</td>
+            <td>Employee first name</td>
+        </tr>
+        <tr>
+            <td>Lname:</td>
+            <td>Employee last name</td>
+        </tr>
+        <tr>
+            <td>DOB:</td>
+            <td>Employee date of birth</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>Employee email</td>
+        </tr>
+        <tr>
+            <td>Contact:</td>
+            <td>Contact</td>
+        </tr>
+        <tr>
+            <td>Department:</td>
+            <td>The department of the employee</td>
+        </tr>
+        <tr>
+            <td>Salary:</td>
+            <td>Employee salary</td>
+        </tr>
+        <tr>
+            <td>Contract:</td>
+            <td>Contract signed by employee</td>
+        </tr>
+    </table>
+
+    <h4>C) FINANCE ENTITY</h4>
+    <p>Finance entity will store financial data of the company. With this table, the company controls the financial circulation in the company by knowing how much is given to each employee per month and per year.</p>
+    <p>This entity has a relationship with the employee entity because finance will need to report how much goes out and to whom.</p>
+<a href="tables.html">Tables</a>
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>FinID:</td>
+            <td>Finance identity</td>
+        </tr>
+        <tr>
+            <td>branch_name:</td>
+            <td>Branch name where employee works</td>
+        </tr>
+        <tr>
+            <td>asset_value:</td>
+            <td>Asset value of the branch</td>
+        </tr>
+        <tr>
+            <td>salary_amount:</td>
+            <td>Salary amount per month</td>
+        </tr>
+        <tr>
+            <td>amount_per_year:</td>
+            <td>Amount per year</td>
+        </tr>
+        <tr>
+            <td>EmpID:</td>
+            <td>Employee identity</td>
+        </tr>
+    </table>
+
+    <h4>D) MARKET ENTITY</h4>
+    <p>In the market entity, the company can know the available market that has to be supplied in the future. Anyone that visits this table can get data related to the market.</p>
+    <p>The table has its relationship with the employee entity because each market needs the employee that will manage and control it. It also has a relationship with the product entity for products have to be specified by its type, that will be supplied in that market.</p>
+<a href="tables.html">Tables</a>
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>MarkID:</td>
+            <td>Market identity</td>
+        </tr>
+        <tr>
+            <td>EmpID:</td>
+            <td>Employee identity</td>
+        </tr>
+        <tr>
+            <td>ProID:</td>
+            <td>Product identity</td>
+        </tr>
+        <tr>
+            <td>Mprovince:</td>
+            <td>Market province</td>
+        </tr>
+        <tr>
+            <td>Mdistrict:</td>
+            <td>Market district</td>
+        </tr>
+        <tr>
+            <td>Msector:</td>
+            <td>Market sector</td>
+        </tr>
+        <tr>
+            <td>Supplydate:</td>
+            <td>Date to supply products</td>
+        </tr>
+    </table>
+
+    <h4>E) PRODUCT ENTITY</h4>
+    <p>Product entity will store all data of products that the company produces by its type and raw materials needed to manufacture them.</p>
+    <p>It has a relationship with the raw material entity because we will need to know which resources products are manufactured from.</p>
+<a href="tables.html">Tables</a>
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>ProID:</td>
+            <td>Product identity number</td>
+        </tr>
+        <tr>
+            <td>RmID:</td>
+            <td>Raw material identity number</td>
+        </tr>
+        <tr>
+            <td>Pname:</td>
+            <td>Product name</td>
+        </tr>
+        <tr>
+            <td>Amount:</td>
+            <td>Product amount</td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td>Product price</td>
+        </tr>
+        <tr>
+            <td>Mnfdate:</td>
+            <td>Manufactured date</td>
+        </tr>
+        <tr>
+            <td>Expdate:</td>
+            <td>Expired date</td>
+        </tr>
+    </table>
+
+    <h4>F) PROPERTY ENTITY</h4>
+    <p>As the company has assets, the table to manage those properties is needed. This table has a relationship with the employee entity to know who is controlling those properties.</p>
+ <a href="tables.html">Tables</a>
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>PropID:</td>
+            <td>Property identity number</td>
+        </tr>
+        <tr>
+            <td>EmpID:</td>
+            <td>Employee identity number</td>
+        </tr>
+        <tr>
+            <td>Pname:</td>
+            <td>Property name</td>
+        </tr>
+        <tr>
+            <td>Province:</td>
+            <td>The province of property</td>
+        </tr>
+        <tr>
+            <td>District:</td>
+            <td>District where property is located</td>
+        </tr>
+        <tr>
+            <td>Sector:</td>
+            <td>Sector of property</td>
+        </tr>
+    </table>
+
+    <h4>G) RAW MATERIAL ENTITY</h4>
+    <p>In this entity, all data related to raw materials will be stored in it. Since it's a company for production, there will be raw materials used in the production process to get final products.</p>
+    <p>This table has a relationship with the supplier entity. He/she will be the supplier of raw materials that the company orders.</p>
+ <a href="tables.html">Tables</a>
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>RmID:</td>
+            <td>Raw materials identity number</td>
+        </tr>
+        <tr>
+            <td>Rtype:</td>
+            <td>Raw materials type</td>
+        </tr>
+        <tr>
+            <td>Ramount:</td>
+            <td>Raw materials amount</td>
+        </tr>
+        <tr>
+            <td>stored_date:</td>
+            <td>Its stored date</td>
+        </tr>
+        <tr>
+            <td>unstore_date:</td>
+            <td>The date in which it's unstored</td>
+        </tr>
+        <tr>
+            <td>SupID:</td>
+            <td>Supplier identity number</td>
+        </tr>
+    </table>
+
+    <h4>H) SUPPLIER ENTITY</h4>
+    <p>This is the entity that will store information about the supplier. He/she is the supplier of raw materials that the company uses.</p>
+    <p>The table has a relationship with the raw materials table because the value and amount of raw materials need to be assigned to the corresponding supplier.</p>
+<a href="tables.html">Tables</a>
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>SupID:</td>
+            <td>Supplier identity number</td>
+        </tr>
+        <tr>
+            <td>Fname:</td>
+            <td>Supplier first name</td>
+        </tr>
+        <tr>
+            <td>Lname:</td>
+            <td>Supplier last name</td>
+        </tr>
+        <tr>
+            <td>Province:</td>
+            <td>Province where supplier is located</td>
+        </tr>
+        <tr>
+            <td>District:</td>
+            <td>District</td>
+        </tr>
+        <tr>
+            <td>Sector:</td>
+            <td>Supplier’s sector</td>
+        </tr>
+        <tr>
+            <td>Phone:</td>
+            <td>Contact of supplier</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>Email of supplier</td>
+        </tr>
+        <tr>
+            <td>amount_paid:</td>
+            <td>Amount received as payment</td>
+        </tr>
+    </table>
+
+<h4>Chapter 1: Java Programming</h4>
+<h5>1.Registration form</h5>
+<tr>
+<p>Here the user will register by filling this form with correct credentials as required by the system.</p>
+</tr>
+
+<img src="registration.png " alt="registration Photo">
+
+<h5>2.Login form</h5>
+<p>After the pop up of registration successfully message, the user need to click on OK then  login form will directly displayed that will require the user to fill the form with correct credentials.</p>
+
+<img src="login.png" alt="login Photo">
+
+<h5>3. Employee form</h5>
+<tr>
+<p>After the pop up of registration successfully message, the user need to click on OK then  login form will directly displayed that will require the user to fill the form with correct credentials.</p></tr>
+<img src="employee.png" alt="employee Photo" width="800" height="450">
+
+<h5>4. Finance form</h5>
+<tr>
+ <p>At this page the user will be having information stored in company database relates to financial circulation. The user can perform different actions includes insert, view, update and delete.</p></tr>
+
+<img src="finance.png" alt="finance Photo" width="800" height="450">
+
+<h5>5. Product form</h5>
+<tr>
+ <p>The product page show the list of products available in the stock of company. The user will be able to  track information of products using product page that interact with database as he/she insert, view, update and delete. the user can achieve this when he fill text field as printed in product page
+</p></tr>
+
+<img src="product.png" alt="product Photo" width="800" height="450">
+
+<h5>6. Properties form</h5>
+<tr>
+ <p>The properties page will display all information of properties available in company database. The use will login and click at properties menu then the page the hit view button to check the properties of the company.
+He/she have more than one choice will navigating this page. He can create new information by filling the text field the insert button or update an existing information or delete expired information as well.
+</p></tr>
+
+<img src="properties.png" alt="properties Photo" width="800" height="450">
+
+<h5>7. Raw material page </h5>
+<tr>
+ <p>At this page, the user is able to check raw materials of the company. He/she can interact with company database at raw materials entity through use of buttons available at the page. He/she can insert, view, update and delete accordingly.
+Insert means adding new raw materials, view means checking the available raw materials entity, update means changing existing data and delete means removing data from database.
+</p></tr>
+
+<img src="raw materials.png" alt="raw materials Photo" width="800" height="450">
+
+<h5>8. Supplier form </h5>
+<tr>
+ <p>By here the user is able to track information relates to supplier of the company. He/she achieves this by using button on bottom row of the page that are insert, view, update and delete.
+If he/she insert, he is adding new supplier in database. If he/she view, he is trying to display supplier data stored in database and if he/she update means changing information of a supplier od he/she can delete an expired data.
+</p></tr>
+
+<img src="supplier.png" alt="supplier Photo" width="800" height="450">
+
+<h5>9.Market page</h5>
+<tr>
+ <p>The market page is for company’s market waiting to be supplied. Here the user will login and choose market menu then he/she can interact with database in market entity by using market page. The user will perform CRUD using buttons like insert, view, update, and delete.
+</p></tr>
+
+<img src="market.png" alt="market Photo" width="800" height="450">
+
+<h5>10.Customer form </h5>
+<tr>
+ <p>With customer form, the user will be able to track data of  company’s customers. This will be done through insert, view, update and delete buttons.
+</p></tr>
+
+<img src="customer.png" alt="customer Photo" width="800" height="450">
+
+<h5>Conclusion;</h5> 
+<tr>
+<p>By concluding this chapter is about my developed production company management system. Any company may use it to manage its information. This system comprise different features that provide user friendly pages and accurate for managing data in database easily. As this system is developed by java in Eclipse IDE and possess as much features as possible any user will get happy with it.</p>
+</tr>
+
+</body>
+</html>
+

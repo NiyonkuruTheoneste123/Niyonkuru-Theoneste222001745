@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About - Production Company Management System</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            color: white;
+            background-color: black;
+            margin: 0;
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            font-size: 17px;
+            background-color: orange;
+        }
+        .nav {
+            overflow: hidden;
+            background-color: dimgray;
+        }
+        .nav a {
+            float: left;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        .nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            color: white;
+            background-image: my.jpg;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>PRODUCTION COMPANY MANAGEMENT SYSTEM</h1>
+</div>
+
+<div class="nav">
+    <a href="home.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="Contact us.html">Contact us</a>
+    <a href="Services.html">Services</a>
+    <a href="Form.html">Form</a>
+    <a href="tables.html">Tables</a>
+    <a href="mybook.html">My Book</a>
+</div>
+
+<br>
+<br>
+<center><form action="/submit-form" method="post">
+  <label for="fname">First Name:</label><br>
+  <input type="text" id="fname" name="fname" required><br><br>
+
+  <label for="lname">Last Name:</label><br>
+  <input type="text" id="lname" name="lname" required><br><br>
+
+  <label for="country">Country:</label><br>
+  <select id="country" name="country" required>
+    <option value="">Select Country</option>
+    <option value="USA">USA</option>
+    <option value="Russia">Russia</option>
+    <option value="Burundi">Burundi</option>
+    <option value="D.R.C">D.R.C</option>
+    <option value="Tanzania">Tanzania</option>
+    <option value="Rwanda">Rwanda</option>
+    <option value="Cote de voir">Cote de voir</option>
+    <option value="Ghana">Ghana</option>
+    <option value="Cameroon">Cameroon</option>
+    <option value="Madascar">Madascar</option>
+    <option value="Canada">Canada</option>
+
+  </select><br><br>
+
+
+  <label for="capital">Capital:</label><br>
+  <input type="text" id="capital" name="capital"><br><br>
+
+  <label>Gender:</label><br>
+  <input type="radio" id="male" name="gender" value="male">
+  <label for="male">Male</label><br>
+  <input type="radio" id="female" name="gender" value="female">
+  <label for="female">Female</label><br>
+  <input type="radio" id="bisex" name="gender" value="bisex">
+  <label for="bisex">Bisex</label><br><br>
+
+  <label for="dob">Date of Birth:</label><br>
+  <input type="date" id="dob" name="dob" required><br><br>
+
+  <label for="phone">Phone Number:</label><br>
+  <input type="text" id="phone_number" name="phone_number"><br><br>
+        
+  <label for="email">Email Address:</label><br>
+  <input type="email" id="email" name="email" required><br><br>
+
+  <label for="company">Company Name:</label><br>
+  <input type="text" id="company" name="company"><br><br>
+
+  <input type="submit" value="Register"> 
+  <input type="reset" value="Cancel" >
+</form></center>
+
+</body>
+</html>
